@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script src = "./data/davis_library_4326.geojson"></script>
+
+</head>
+<body>
+
+    <div id="mapid"></div>
+    <style>
+        #mapid{width: 900px; height: 500px;}
+    </style>
+
+    <script>
+        var map = L.map('mapid').setView([35.91, -79.05], 17);
+        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {}).addTo(map)
+       
+
+
+            // L.geoJSON(uncdavislibrary).addTo(map)
+
+            var uncIcon = L.icon({
+            iconUrl: 'https://png2.cleanpng.com/sh/9a73001528d7d676120b908882421019/L0KzQYm4UcI4N5ZrR91yc4Pzfri0gB9ueKZ5feQ2aXPyfsS0jPljepJ3kZ9sbHnzPbL5lL13bZR5hAQ2Z4LkgLnwgCMucZQyhNtrcnH1iX76lvcueJ9sRdtsb36wdsPshb1ld6hzhNHqZD23RIq4WMEud59xRadrZnTmRoq5UvJlbGI7RqQBNEe8QIG6UcU1O2Q6UKIEOEG6SYi1kP5o/kisspng-computer-icons-library-clip-art-vector-graphics-ic-library-svg-png-icon-free-download-449181-onl-5bfdc6922bdd16.2647900315433580981797.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+            });
+
+            var customPopup = "UNC Davis Library; Built in 1984 <br/><img src='https://library.unc.edu/wp-content/uploads/2019/08/davis.jpg'width='100px'/>";
+
+            
+            // L.geoJSON(belltower).addTo(map)
+
+            var towerIcon = L.icon({
+            iconUrl: 'https://image.flaticon.com/icons/png/512/58/58306.png',
+            iconSize: [100,100],
+            popupAnchor: [0,0]
+            });
+
+            var belltowerPopup = "UNC Bell Tower; Built in 1931 <br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bell_tower_in_Chapel_Hill_%28cropped%29.jpg/1024px-Bell_tower_in_Chapel_Hill_%28cropped%29.jpg'width='100px'/>";
+
+            
+            // L.geoJSON(manninghall).addTo(map)
+
+            var manningIcon = L.icon({
+            iconUrl: 'https://png.pngtree.com/png-clipart/20191120/original/pngtree-school-building-icon-png-image_5069221.jpg',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+            });
+
+            var manningPopup = "Manning Hall; Built in 1923 <br/><img src='https://cms.concept3d.com/map/lib/image-cache/i.php?mapId=111&image=111/2_93.jpg&w=900&h=508&r=1'width='100px'/>";
+
+
+
+
+        L.geoJSON(uncdavislibrary, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: uncIcon});}}) // c
+        .bindPopup(customPopup) // d
+        .addTo(map); //
+
+        L.geoJSON(belltower, {
+        pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: towerIcon});}})
+        .bindPopup(belltowerPopup)
+        .addTo(map);
+
+        L.geoJSON(manninghall, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: manningIcon});}}) // c
+        .bindPopup(manningPopup) // d
+        .addTo(map); //
+
+        
+
+    </script>
+
+    
+</body>
+</html>
