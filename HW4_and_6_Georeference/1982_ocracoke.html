@@ -40,15 +40,26 @@
       .bindPopup(coastPopup);
 
       var icon_dock = L.icon({
-        iconUrl: 'https://static.thenounproject.com/png/3262992-200.png',
-        iconSize: [50,50],
+        iconUrl: 'https://www.flaticon.com/svg/vstatic/svg/3719/3719894.svg?token=exp=1614461818~hmac=c16bd4945bedb048a9cb85df6d776946',
+        iconSize: [35,35],
         popupAnchor: [0,0]
       });
 
       var dockPopup = "More docks were built in this area to allow more ships to stay. <br/><img src= 'https://www.chesapeakeboatbasin.com/wp/wp-content/uploads/chesapeakeboatbasin.com/2016/11/Thumb-3.jpg'width='100px'/>";
 
-      var mark2 = L.marker([35.115027,-75.988867], {icon: icon_dock})
+      var mark2 = L.marker([35.115658,-75.988945], {icon: icon_dock})
       .bindPopup(dockPopup);
+
+      var icon_pub = L.icon({
+        iconUrl: 'https://www.flaticon.com/svg/vstatic/svg/3207/3207949.svg?token=exp=1614463016~hmac=a8a4f8f7b4294c97f6667bd732af223d',
+        iconSize: [35,35],
+        popupAnchor: [0,0]
+      });
+
+      var pubPopup = "Howard's Pub & Restaurant was built after the historical image was taken and has become a local favorite. <br/><img src= 'https://i.pinimg.com/originals/10/94/7f/10947fccf96b54bc5bd37e9595044cd1.png'width='100px'/>";
+      
+      var mark3 = L.marker([35.107350,-75.971200], {icon: icon_pub})
+      .bindPopup(pubPopup);
     
 
       var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -65,12 +76,13 @@
 
       var daTiles = {
         "Open Street Map": OSM,
-        "Ocracoke Photo": daPhoto
+        "Ocracoke Historical Image": daPhoto
       }
 
       var daVectors = {
         "Coastline Change":mark1,
-        "Dock Construction":mark2
+        "Dock Construction":mark2,
+        "Howard's Restaurant":mark3
       }
 
       L.control.layers(daTiles, daVectors).addTo(map);
