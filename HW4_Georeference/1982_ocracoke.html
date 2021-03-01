@@ -28,33 +28,6 @@
   <script>
       var map = L.map('map').setView([35.11891526811199, -75.95383289144833], 14.0);
 
-      var icon_coast = L.icon({
-        iconUrl: 'https://www.clipartmax.com/png/middle/183-1830432_coastal-erosion-symbol.png',
-        iconSize: [35,35],
-        popupAnchor: [0,0]
-         });
-
-      var coastPopup = "The coastline eroded and disappeared overtime. <br/><img src= 'https://eponline.com/-/media/SEC/Security-Products/Images/2016/10/coastal-erosion.jpg'width='100px'/>";
-
-      var mark1 = L.marker([35.120706,-75.980295], {icon: icon_coast})
-      .bindPopup(coastPopup);
-
-      var icon_dock = L.icon({
-        iconUrl: 'https://static.thenounproject.com/png/3262992-200.png',
-        iconSize: [50,50],
-        popupAnchor: [0,0]
-      });
-
-      var dockPopup = "More docks were built in this area to allow more ships to stay. <br/><img src= 'https://www.chesapeakeboatbasin.com/wp/wp-content/uploads/chesapeakeboatbasin.com/2016/11/Thumb-3.jpg'width='100px'/>";
-
-      var mark2 = L.marker([35.115027,-75.988867], {icon: icon_dock})
-      .bindPopup(dockPopup);
-    
-
-      var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	      maxZoom: 19,
-	      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }).addTo(map);
       
       var daPhoto = L.tileLayer('./tiles/{z}/{x}/{y}.png', {
         minZoom: 12,
@@ -63,17 +36,7 @@
         attribution: 'USGS'
       }).addTo(map);
 
-      var daTiles = {
-        "Open Street Map": OSM,
-        "Ocracoke Photo": daPhoto
-      }
 
-      var daVectors = {
-        "Coastline Change":mark1,
-        "Dock Construction":mark2
-      }
-
-      L.control.layers(daTiles, daVectors).addTo(map);
 
 
   </script>
