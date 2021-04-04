@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 10</title>
+</head>
+<body>
+<h1>Homework 10: Geoprocessing Analysis </h1>
+<h3>Rebecka McMorris</h3>
+<p>For this map, I wanted to answer the question of "What proportion of buffered wetlands intersect with National Wildlife Refuges in the state of West Virginia?" Wetlands are vital ecosystems for wildlife and also have benefits for humans, such as filtering out harmful pollutants. I wanted to see how much overlap there was between wildlife refuges in the state and wetland areas, since wetlands are home to so many important species. I created a 50 meter buffer around the wetlands because there is no guarentee that all species fall exactly within the wetland boundary provided, so the buffer gives a little wiggle room to account for possible species that were left out of the exact boundaries. It turns out there is only 1 National Wildlife Refuge in the state, so I intersected it with the layer of buffered wetlands to determine what portion of wetlands have protected wildlife areas. Within the wildlife refuge, a large portion of the area is wetland. However, since only a very small section of the state is a National Wildlife Refuge, only a very small proportion of wetlands in the state fall within a protected wildlife area. </p>
+<!-- Your map goes here -->
+<a href="wetland_wildliferefuge_wv.png">
+    <img src="wetland_wildliferefuge_wv.png" alt="your map" width='1000px'>
+    </a>
+
+<!-- Link to your shapefile in Github and you CSV -->
+<h2>Data used for this project</h2>
+    <a href="wv_counties.geojson"> WV Counties geoJSON </a> </br>
+    <a href="wildliferefuge.geojson"> Wildlife Refuge geoJSON </a> </br>
+    <a href="intersectedwetlands.geojson"> Intersected and Buffered Wetlands geoJSON </a> 
+    <p></p>
+    <a href="http://wvgis.wvu.edu/data/dataset.php?ID=136"> WV Counties Webpage </a> </br>
+    <a href="http://wvgis.wvu.edu/data/dataset.php?ID=236"> Wildlife Refuge Webpage </a> </br>
+    <a href="http://wvgis.wvu.edu/data/dataset.php?ID=124"> Wetlands Webpage </a>
+
+</body>
+</html>
